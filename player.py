@@ -1,64 +1,94 @@
 import time
-from Song import Song
 import vlc
-from youtube import youtube
+import youtube
 
 class player():
-    
-    def __init__(self):
-        self.song = 0
-        self.paused = False
-        self.start_time = 0
-        self.pause_time = 0
-        self.duration = 0
-        self.YT = youtube()
-        pass
 
-    def start(self, song):
-        self.current_time = 0
-        self.pause_start = 0
-        self.pause_time = 0
-        self.paused = False
-        url = self.YT.audioStream(song.artist, song.title)
-        self.duration = self.YT.getDuration()
-        self.start_time = time.time()
-        self.song = vlc.MediaPlayer(url)
-        self.song.play()
-        return self.duration
+    def __init__(self, playlist = []):
+        self.playing = True
+        self.playlist = playlist
+        self.current = 0
+        self.song = None
+        if playlist:
+            self.song = playlist[self.current]
+        self.vlc = None
 
-    def play(self):
-        if not self.paused:
+    def toggle_mute(self):
+        self.vlc.audio_toggle_mute()
+
+    def start(self):
+        print(self.song)
+        try:
+            url = youtube.audioStream(self.song) 
+        except:
+            print("Copyrights law")
             return
-        self.pause_time += self.pause_start - time.time()
-        self.paused = False
-        self.song.play()
+        if url:
+            self.vlc = vlc.MediaPlayer(url)
+            self.vlc.play()
+
+    def addSong(self, song):
+        self.playlist.append(song)
+
+    def appendPlaylist(self, playlist):
+        self.playlist += playlist
+
+    def prevSong(self):
+        self.current -= 1
+        if self.current <= 0:
+            self.current = self.playlist.__len__() - 1
+        return self.playlist[self.current]
+
+    def nextSong(self):
+        self.current += 1
+        if self.current >= self.playlist.__len__():
+            self.current = 0
+        return self.playlist[self.current]
+
+    def is_playing(self):
+        return self.vlc.is_playing()
+
+    def toggle_pause(self):
+        if self.playing:
+            self.vlc.pause()
+        else:
+            self.vlc.play()
+        self.playing = not self.playing
 
     def pause(self):
-        if self.paused:
-            return
-        self.paused = True
-        self.pause_start = time.time()
-        self.song.pause()
+        print('pause')
+        self.vlc.pause()
 
     def stop(self):
-        self.song.stop()
-        self.current_time = 0
-        self.song = 0
-        self.paused = False
-        self.start_time = 0
-        self.pause_time = 0
-        self.duration = 0
+        print('stop')
+        self.vlc.stop()
 
-    def songEnded(self):
-        time_passed = abs(self.start_time - self.pause_time - time.time())
-        if not self.paused :
-            self.current_time = time_passed
-        if self.current_time > self.duration and self.duration > 0:
-            return True
-        return False
+    def next(self):
+        print('next')
+        self.vlc.stop()
+        self.song = self.nextSong()
+        try:
+            self.start()
+        except:
+            self.next()
 
+    def prev(self):
+        print('prev')
+        self.vlc.stop()
+        self.song = self.prevSong()
+        self.start()
 
+    def notify(self, notif):
+        if notif == 'stop':
+            self.toggle_mute()
 
+        if notif == 'play/pause':
+            self.toggle_pause()
 
+        if notif == 'next':
+            self.next()
 
+        if notif == 'prev':
+            self.prev()
+            
 
