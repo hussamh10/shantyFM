@@ -1,6 +1,6 @@
-def getPlaylist():
+def getPlaylist(file):
     
-    file = open('rock', 'r')
+    file = open(file, 'r')
     temp = file.readlines()
     arr = []
     

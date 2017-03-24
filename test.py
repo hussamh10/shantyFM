@@ -1,11 +1,14 @@
 import player
 import os
+import sys
 import time
 from playlist import getPlaylist
 from Handling import Handler
 from random import shuffle
 
-arr = getPlaylist()
+file = sys.argv[-1]
+
+arr = getPlaylist(file)
 shuffle(arr)
 
 test = player.player(arr)

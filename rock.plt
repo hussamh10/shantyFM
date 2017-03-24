@@ -27,3 +27,6 @@ Arctic Monkeys Arabella
 Arctic Monkeys I wanna be yours
 Arctic Monkeys It feels like
 U2 Beautiful Day
+Whistle for the Choir, The Fratellis
+Atleast it was here, The 88
+Kate nash merry happy
