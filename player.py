@@ -23,10 +23,12 @@ class player():
             url = youtube.audioStream(self.song) 
         except:
             print("Copyrights law")
-            return
+            return False
         if url:
             self.vlc = vlc.MediaPlayer(url)
             self.vlc.play()
+            return True
+        return False
 
     def addSong(self, song):
         self.playlist.append(song)
@@ -73,14 +75,17 @@ class player():
         self.vlc.stop()
         self.song = self.nextSong()
         try:
-            self.start()
+            p = self.start()
         except:
+            pass
+        if p == False:
             self.next()
+
 
     def prev(self):
         print('prev')
         self.vlc.stop()
-        self.song = self.prevSong()
+        #self.song = self.prevSong()
         self.start()
 
     def notify(self, notif):
