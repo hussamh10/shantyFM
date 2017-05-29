@@ -5,11 +5,11 @@ import youtube
 class player():
 
     def __init__(self, playlist = []):
-        self.stopped = False
         self.playing = True
         self.playlist = playlist
         self.current = 0
         self.song = None
+        self.is_skipping = False
         if playlist:
             self.song = playlist[self.current]
         self.vlc = None
@@ -20,10 +20,14 @@ class player():
     def start(self):
         print(self.song)
         try:
-            url = youtube.audioStream(self.song) 
+            url = youtube.audioStream(self.song, 1)
         except:
-            print("Copyrights law")
-            return False
+            try:
+                print("Trying a different source")
+                url = youtube.audioStream(self.song, 2)
+            except:
+                print("Sorry, there is  a Copyrights law on this song")
+                return False
         if url:
             self.vlc = vlc.MediaPlayer(url)
             self.vlc.play()
@@ -72,37 +76,30 @@ class player():
 
     def next(self):
         print('next')
-        self.vlc.stop()
         self.song = self.nextSong()
         try:
             p = self.start()
         except:
+            #self.next()
             pass
-        if p == False:
-            self.next()
-
 
     def prev(self):
         print('prev')
         self.vlc.stop()
-        #self.song = self.prevSong()
         self.start()
 
     def notify(self, notif):
         if notif == 'stop':
-            self.stopped = True
-            self.vlc.stop()
+            self.toggle_mute()
 
         if notif == 'play/pause':
-            # if self.stopped:
-                # self.start()
-            # else:
             self.toggle_pause()
 
         if notif == 'next':
+            self.is_skipping = True
+            self.stop()
             self.next()
+            self.is_skipping = False
 
         if notif == 'prev':
             self.prev()
-            
-

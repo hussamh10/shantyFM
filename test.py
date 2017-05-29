@@ -22,7 +22,7 @@ while(True):
     time.sleep(0.1)
     h.handle()
     if not test.is_playing() and test.playing:
-        test.next()
+        if not test.is_skipping:
+            test.next()
         while not test.is_playing():
             time.sleep(5)
- 

@@ -1,8 +1,8 @@
 import pafy
 import g_search
 
-def audioStream(query):
-    url = g_search.getUrl(query, 'youtube.com')
+def audioStream(query, src):
+    url = g_search.getUrl(query, 'youtube.com', source=src)
     return getAudioURL(url)
 
 def getAudioURL(url):
