@@ -1,0 +1,41 @@
+missing module named resource - imported by posix, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named posix - imported by os, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named _posixsubprocess - imported by subprocess, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named 'org.python' - imported by pickle, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py, xml.sax
+missing module named readline - imported by cmd, code, pdb, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named _winreg - imported by platform, vlc, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named _scproxy - imported by urllib.request
+missing module named java - imported by platform, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named 'java.lang' - imported by platform, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named termios - imported by tty, vlc, getpass, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named urllib.quote_plus - imported by urllib, google
+missing module named urllib.unquote_plus - imported by urllib, pafy.backend_internal
+missing module named urllib.urlretrieve - imported by urllib, youtube_dl.compat
+missing module named urllib.urlencode - imported by urllib, pafy.util
+missing module named grp - imported by tarfile, shutil, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named pwd - imported by posixpath, tarfile, shutil, http.server, webbrowser, netrc, getpass, youtube_dl.compat, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named ce - imported by os, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named _dummy_threading - imported by dummy_threading, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named org - imported by copy, C:\Users\hussamh10\Desktop\sandbox\shantyBay\test.py
+missing module named BeautifulSoup - imported by google
+missing module named iconv_codec - imported by bs4.dammit
+missing module named cchardet - imported by bs4.dammit
+missing module named lxml - imported by bs4.builder._lxml
+missing module named 'html5lib.treebuilders' - imported by bs4.builder._html5lib
+missing module named 'html5lib.constants' - imported by bs4.builder._html5lib
+missing module named html5lib - imported by bs4.builder._html5lib
+missing module named urlparse - imported by youtube_dl.compat, pafy.backend_internal, pafy.backend_shared, pafy.playlist, google
+missing module named urllib2 - imported by pafy.pafy, pafy.g, pafy.util, youtube_dl.compat, pafy.backend_shared, google
+missing module named cookielib - imported by youtube_dl.compat, google
+missing module named fcntl - imported by youtube_dl.utils, pty
+missing module named lazy_extractors - imported by youtube_dl.extractor
+missing module named Crypto - imported by youtube_dl.downloader.hls
+missing module named xattr - imported by youtube_dl.utils
+missing module named BaseHTTPServer - imported by youtube_dl.compat
+missing module named HTMLParser - imported by youtube_dl.compat
+missing module named httplib - imported by youtube_dl.compat
+missing module named htmlentitydefs - imported by youtube_dl.compat
+missing module named Cookie - imported by youtube_dl.compat

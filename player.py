@@ -99,7 +99,9 @@ class player():
             self.is_skipping = True
             self.stop()
             self.next()
-            self.is_skipping = False
 
         if notif == 'prev':
             self.prev()
+
+    def addSong(self, song):
+        self.playlist.append(song)
