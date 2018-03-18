@@ -1,0 +1,14 @@
+{
+  "name": "shanty-fm",
+  "version": "1.0.0",
+  "description": "A music streaming application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Hussam Habib",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.8.4"
+  }
+}
