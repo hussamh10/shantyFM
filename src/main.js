@@ -2,7 +2,7 @@ const electron = require('electron');
 const url = require('url');
 const path = require('path');
 
-const {app, BrowserWindow} = electron;
+const {app, BrowserWindow, Menu, ipcMain} = electron;
 
 let mainWindow
 
@@ -16,5 +16,32 @@ app.on('ready', function(){
 		protocol:'file:',
 		slashes: true
 	}));
+
+	const main_menu = Menu.buildFromTemplate(mainMenuTemplate);
+	Menu.setApplicationMenu(main_menu);
 });
 
+
+ipcMain.on('play:song', function(e, song){
+	playSong(song);
+});
+
+function playSong(song){
+	console.log(song);
+}
+
+
+// Toolbar
+const mainMenuTemplate = [
+	{
+		label:'File',
+		submenu:[
+			{
+				label:'Exit',
+				click(){
+					app.quit()
+				}
+			}
+		]
+	}
+]

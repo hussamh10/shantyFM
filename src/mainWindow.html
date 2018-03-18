@@ -6,5 +6,18 @@
 
 	<body>
 		<h1>Welcome<h1>
+		<input id="in_song"></input>
+		<button id="btn_play" onclick="playSong()">Play</button>
+		<button id="btn_pause">Pause</button>
 	</body>
+
+	<script>
+		const electron = require('electron');
+		const {ipcRenderer} = electron;
+		function playSong(){
+			const song = document.getElementById("in_song").value;
+			ipcRenderer.send('play:song', song);
+		}
+	</script>
+
 </html>
